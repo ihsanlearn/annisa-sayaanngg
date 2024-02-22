@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
+/*variable*/
+:root {
+  --main-bg-color: #EFE8DC;
+  --text-color: #3A3134;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--main-bg-color);
+  font-family: "Alata";
+  color: #3A3134;
+  cursor: crosshair;
+}
+
+.wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: 50% 50%;
+}
+
+.container {
+  margin: 0 auto;
+  display: inline;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  text-transform: uppercase;
+  font-size: 60px;
+  font-family: "Montserrat", sans-serif;
+}
+
+/*blink*/
+.text-1 {
+  animation: blink 3s linear 1s infinite;
+  opacity: 0;
+}
+
+/*stroke*/
+.text-2 {
+  color: var(--main-bg-color);
+  -webkit-text-stroke: 2px var(--text-color);
+}
+
+/*glitch*/
+.text-3 {
+  animation: glitch 1s linear infinite;
+}
+
+.text-4 {
+  animation: text-shadow 1.5s ease-in-out infinite;
+}
+
+/*tooltip text*/
+.text-5 {
+  font-size: 21px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 90%;
+  left: 100%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/*animation*/
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 100%;
+  }
+  99% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0) skew(2deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(50deg);
+  }
+}
+@keyframes text-shadow {
+  0% {
+    transform: translateY(0);
+    text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
+  }
+  20% {
+    transform: translateY(-10px);
+    text-shadow: 0 0.125px 0 #0c2ffb, 0 0.25px 0 #2cfcfd, 0 -0.125px 0 #fb203b, 0 -0.25px 0 #fefc4b;
+  }
+  40% {
+    transform: translateY(5px);
+    text-shadow: 0 -0.0625em 0 #0c2ffb, 0 -0.125em 0 #2cfcfd, 0 0.0625em 0 #fb203b, 0 0.125em 0 #fefc4b;
+  }
+  60% {
+    transform: translateY(-0.25px);
+    text-shadow: 0 0.03125em 0 #0c2ffb, 0 0.0625em 0 #2cfcfd, 0 -0.03125em 0 #fb203b, 0 -0.0625em 0 #fefc4b;
+  }
+  80% {
+    transform: translateY(0);
+    text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
+  }
+}
